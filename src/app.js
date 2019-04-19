@@ -11,6 +11,9 @@ import './styles/styles.scss';
 // import 'react-dates/lib/css/_datepicker.css';
 import 'react-dates/initialize'; //https://github.com/airbnb/react-dates#initialize
 import 'react-dates/lib/css/_datepicker.css'; // old version
+import './firebase/firebase';
+// import './playground/promises';
+
 
 const store = configureStore();
 
