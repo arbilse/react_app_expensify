@@ -17,7 +17,7 @@ export class ExpenseListFilters extends React.Component {
   onTextChange = (e) => {
     this.props.setTextFilter(e.target.value);
   };
-  onSortchange = (e) => {
+  onSortChange = (e) => {
     if (e.target.value === 'date') {
       this.props.sortByDate();
     } else if (e.target.value === 'amount') {
@@ -26,19 +26,28 @@ export class ExpenseListFilters extends React.Component {
   };
   render() {
     return (
-      <div>
+      <div className="content-container">
+      <div className="input-group">
+        <div className="input-group__item">
         <input
           type="text"
+          className="text-input"
+          placeholder="Search Expenses"
           value={this.props.filters.text}
           onChange={this.onTextChange}
         />
+        </div>
+        <div className="input-group__item">
         <select
+          className="select"
           value={this.props.filters.sortBy}
-          onChange={this.onSortchange}
+          onChange={this.onSortChange}
         >
           <option value="date">Date</option>
           <option value="amount">Amount</option>
         </select>
+        </div>
+        <div className="input-group__item">
         <DateRangePicker
           startDate={this.props.filters.startDate}
           endDate={this.props.filters.endDate}
@@ -51,6 +60,8 @@ export class ExpenseListFilters extends React.Component {
           startDateId="your_unique_start_date_id" // PropTypes.string.isRequired
           endDateId="your_unique_end_date_id" // PropTypes.string.isRequired
         />
+        </div>
+        </div>
       </div>
     );
   }
